@@ -1,0 +1,71 @@
+display_information:
+  name: Feedback Sync App
+  description: Centralize Customer Feedback. Increase NRR.
+  background_color: "#080201"
+  long_description: "Start with a simple `hello` in `Messages Tab`.  \rAny user, across departments, can submit customer feedback into.  \r A more centralized submission of feedback will allow for a better, data-focused analysis of top reasons for churn, expansion, and feature feedback analysis."
+features:
+  app_home:
+    home_tab_enabled: true
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: Feedback Sync
+    always_online: true
+  shortcuts:
+    - name: Message Create Feedback
+      type: message
+      callback_id: message_create_feedback
+      description: Create a feedback from this message
+    - name: Global Create Feedback
+      type: global
+      callback_id: global_create_feedback
+      description: global_create_feedback
+  slash_commands:
+    - command: /create-feedback
+      description: Create feedback
+      should_escape: false
+oauth_config:
+  redirect_urls:
+    - https://feedback-sync.herokuapp.com/
+  scopes:
+    user:
+      - channels:read
+      - chat:write
+      - groups:read
+      - im:write
+      - mpim:read
+      - team.preferences:read
+      - team:read
+      - users.profile:read
+      - admin.usergroups:read
+      - users:read
+    bot:
+      - channels:history
+      - channels:read
+      - chat:write
+      - commands
+      - groups:history
+      - groups:read
+      - im:history
+      - im:read
+      - incoming-webhook
+      - mpim:history
+      - mpim:read
+      - users:read
+      - chat:write.public
+      - channels:write.invites
+      - chat:write.customize
+      - im:write
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_home_opened
+      - message.channels
+      - message.groups
+      - message.im
+      - message.mpim
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: true
+  socket_mode_enabled: true
+  token_rotation_enabled: false

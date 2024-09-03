@@ -1,0 +1,47 @@
+import * as dotenv from 'dotenv';
+
+let path;
+switch (process.env.NODE_ENV) {
+  case 'production':
+    path = `${__dirname}/.env.production`;
+    break;
+  default:
+    path = `${__dirname}/.env.development`;
+}
+dotenv.config({ path: path });
+
+export default {
+  DB_URI: process.env.DB_URI,
+  PORT: process.env.PORT,
+  WEAVIATE_SCHEME: process.env.WEAVIATE_SCHEME,
+  WEAVIATE_HOST: process.env.WEAVIATE_HOST,
+  WEAVIATE_API_KEY: process.env.WEAVIATE_API_KEY,
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+  APIFY_TOKEN: process.env.APIFY_TOKEN,
+  HELICONE_API_KEY: process.env.HELICONE_API_KEY,
+  FIREBASE_SERVICE_MODE: process.env.FIREBASE_SERVICE_MODE,
+  FRONT_END_REDIRECT_URL: process.env.FRONT_END_REDIRECT_URL,
+  STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+  STRIPE_WEBHOOK_END_POINT: process.env.STRIPE_WEBHOOK_END_POINT,
+  STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
+  STRIPE_PRICE_ID_PREMIUM: process.env.STRIPE_PRICE_ID_PREMIUM,
+  ZENDESK_TOKEN: process.env.ZENDESK_TOKEN,
+  ZENDESK_DOMAIN: process.env.ZENDESK_DOMAIN,
+  SLACK_INCOMING_WEBHOOK: process.env.SLACK_INCOMING_WEBHOOK,
+  ALGOLIA_INDEX_NAME: process.env.ALGOLIA_INDEX_NAME,
+  SLACK_NOTIFICATION_WEBHOOK: process.env.SLACK_NOTIFICATION_WEBHOOK,
+  WEAVIATE_CLASS_NAME: process.env.WEAVIATE_CLASS_NAME,
+  FEEDBACK_GPT_WEAVIATE_API: process.env.FEEDBACK_GPT_WEAVIATE_API,
+  ZENDESK_ORGANIZATION_INTERNAL_ID: process.env.ZENDESK_ORGANIZATION_INTERNAL_ID,
+  EMAIL_USER: process.env.EMAIL_USER,
+  EMAIL_PASS: process.env.EMAIL_PASS,
+  BASE_URL: process.env.BASE_URL,
+  APP_URL: process.env.APP_URL,
+  SLACK_CLIENT_ID: process.env.SLACK_CLIENT_ID,
+  SLACK_CLIENT_SECRET: process.env.SLACK_CLIENT_SECRET,
+  SLACK_APP_ID: process.env.SLACK_APP_ID,
+  LOOP_AUTHENTICATION_TOKEN: process.env.LOOP_AUTHENTICATION_TOKEN,
+  INTERCOM_API_AUTHENTICATION_TOKEN: process.env.INTERCOM_API_AUTHENTICATION_TOKEN,
+  SLACK_WORKSPACE_ID: process.env.SLACK_WORKSPACE_ID,
+  SLACK_CHANNEL_ID: process.env.SLACK_CHANNEL_ID,
+};
